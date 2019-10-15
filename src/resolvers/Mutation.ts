@@ -73,6 +73,19 @@ export const Mutation = mutationType({
       },
     });
 
+    t.field('createPicross', {
+      type: 'Picross',
+      args: {
+        map: stringArg(),
+      },
+      resolve: (parent, {map}, ctx) => {
+        const userId = getUserId(ctx);
+        return ctx.photon.picrosses.create({
+          data: {map},
+        });
+      },
+    });
+
     t.field('deletePost', {
       type: 'Post',
       nullable: true,

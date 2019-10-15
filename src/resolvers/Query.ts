@@ -24,6 +24,26 @@ export const Query = queryType({
       },
     });
 
+    t.field('picross', {
+      type: 'Picross',
+      nullable: true,
+      args: {
+        id: idArg({required: false}),
+      },
+      resolve: async (parent, {id}, ctx) => {
+        if(id) {
+          return ctx.photon.picrosses.findOne({
+            where: {id},
+          });
+        } else {
+          const picrosses = await ctx.photon.picrosses.findMany();
+          const random = Math.round(Math.random()) * picrosses.length;
+          console.log(picrosses[random]);
+          return picrosses[random] as any;
+        }
+      },
+    });
+
     t.list.field('filterPosts', {
       type: 'Post',
       args: {

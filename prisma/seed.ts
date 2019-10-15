@@ -1,5 +1,6 @@
-import { Photon } from '@generated/photon'
-const photon = new Photon()
+import {Photon} from '@generated/photon';
+
+const photon = new Photon();
 
 async function main() {
   const user1 = await photon.users.create({
@@ -15,7 +16,7 @@ async function main() {
         },
       },
     },
-  })
+  });
   const user2 = await photon.users.create({
     data: {
       email: 'bob@prisma.io',
@@ -36,10 +37,10 @@ async function main() {
         ],
       },
     },
-  })
-  console.log({ user1, user2 })
+  });
+  console.log({user1, user2});
 }
 
 main().finally(async () => {
-  await photon.disconnect()
-})
+  await photon.disconnect();
+});

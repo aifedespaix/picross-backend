@@ -1,8 +1,7 @@
 FROM node:latest
 
-WORKDIR /home/node
-COPY package.json .
+COPY package.json /app/
+WORKDIR /app
 RUN npm install
-RUN npm install -g --unsafe-perm prisma2
 
-ENTRYPOINT prisma2 dev
+RUN npm install -g --unsafe-perm prisma2

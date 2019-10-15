@@ -2,14 +2,37 @@ version: '3.7'
 
 services:
 
-  picross-backend:
-    container_name: picross-backend-${NODE_ENV}
+  picross-backend-prisma:
+    container_name: picross-backend-prisma-${NODE_ENV}
     build:
       context: .
       dockerfile: Dockerfile
+    entrypoint: prisma2 dev
     ports:
       - 8080:5555
-      - 8000:4000
-
     volumes:
-      - .:/home/node
+      - .:/app
+
+  picross-backend-api:
+    container_name: picross-backend-api-${NODE_ENV}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: npm run dev
+    ports:
+      - 8000:4000
+    depends_on:
+      - picross-backend-prisma
+    volumes:
+      - .:/app
+    networks:
+      - web
+    labels:
+      - "traefik.frontend.rule=Host:${TRAEFIK_HOST_API}"
+      - "traefik.backend=${TRAEFIK_HOST_API}-back"
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+
+networks:
+  web:
+    external: true
