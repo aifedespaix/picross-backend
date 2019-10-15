@@ -1,4 +1,4 @@
-version: '3.7'
+version: '2.2'
 
 services:
 
@@ -24,7 +24,7 @@ services:
     depends_on:
       - picross-backend-prisma
     volumes:
-      - .:/app
+      - prod:/app
     networks:
       - web
     labels:
@@ -36,3 +36,5 @@ services:
 networks:
   web:
     external: true
+volumes:
+  prod:
