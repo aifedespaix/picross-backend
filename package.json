@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "ts-node-dev --no-notify --respawn --transpileOnly ./src",
     "seed": "ts-node prisma/seed.ts",
-    "postinstall": "prisma2 generate"
+    "postinstall": "prisma2 generate",
+    "build": "tsc"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
