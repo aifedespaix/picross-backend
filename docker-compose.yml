@@ -4,7 +4,7 @@ services:
 
   picross-backend-api:
     container_name: picross-backend-api-${NODE_ENV}
-    image: aifedespaix/picross-backend
+#    image: aifedespaix/picross-backend
     build:
       context: .
       dockerfile: Dockerfile
