@@ -31,13 +31,13 @@ export const Query = queryType({
         id: idArg({required: false}),
       },
       resolve: async (parent, {id}, ctx) => {
-        if(id) {
+        if (id) {
           return ctx.photon.picrosses.findOne({
             where: {id},
           });
         } else {
           const picrosses = await ctx.photon.picrosses.findMany();
-          const random = Math.round(Math.random()) * picrosses.length;
+          const random = Math.floor(Math.random() * picrosses.length);
           return picrosses[random] as any;
         }
       },

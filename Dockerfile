@@ -1,15 +1,16 @@
 FROM node:latest
 
-COPY package.json /app/
 WORKDIR /app
 
-RUN yarn global add prisma2
-RUN yarn global add tsc
-
+COPY package.json .
+COPY yarn.lock .
 RUN yarn
 
 COPY . .
 
-RUN prisma2 generate
+RUN yarn prisma2 lift save --name 'init'
+RUN yarn prisma2 lift up
+
+RUN yarn generate
 
 ENTRYPOINT yarn dev
