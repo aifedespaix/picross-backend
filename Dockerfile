@@ -11,6 +11,5 @@ RUN yarn
 COPY . .
 
 RUN prisma2 generate
-RUN yarn build
 
-ENTRYPOINT yarn prod
+ENTRYPOINT yarn dev
