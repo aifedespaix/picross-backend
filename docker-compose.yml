@@ -4,11 +4,14 @@ services:
 
   picross-backend-api:
     container_name: picross-backend-api-${NODE_ENV}
-#    image: aifedespaix/picross-backend
-    build:
-      context: .
-      dockerfile: Dockerfile
-#    volumes:
+    image: aifedespaix/picross-backend
+    #    build:
+    #      context: .
+    #      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    volumes:
+      - prod:/app
 #      - .:/app
     networks:
       - web
