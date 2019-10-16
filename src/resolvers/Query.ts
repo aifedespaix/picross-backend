@@ -38,9 +38,16 @@ export const Query = queryType({
         } else {
           const picrosses = await ctx.photon.picrosses.findMany();
           const random = Math.round(Math.random()) * picrosses.length;
-          console.log(picrosses[random]);
           return picrosses[random] as any;
         }
+      },
+    });
+
+    t.list.field('picrosses', {
+      type: 'Picross',
+      nullable: true,
+      resolve: async (parent, args, ctx) => {
+        return ctx.photon.picrosses.findMany();
       },
     });
 

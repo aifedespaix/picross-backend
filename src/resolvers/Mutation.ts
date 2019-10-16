@@ -99,6 +99,19 @@ export const Mutation = mutationType({
       },
     });
 
+    t.field('deletePicross', {
+      type: 'Picross',
+      nullable: true,
+      args: {id: idArg()},
+      resolve: (parent, {id}, ctx) => {
+        return ctx.photon.picrosses.delete({
+          where: {
+            id,
+          },
+        });
+      },
+    });
+
     t.field('publish', {
       type: 'Post',
       nullable: true,
