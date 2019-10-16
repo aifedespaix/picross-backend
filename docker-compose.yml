@@ -2,30 +2,16 @@ version: '2.2'
 
 services:
 
-  picross-backend-prisma:
-    container_name: picross-backend-prisma-${NODE_ENV}
-    image: aifedespaix/picross-backend
-    entrypoint: prisma2 dev
-    networks:
-      - backend
-    ports:
-      - 8080:5555
-    volumes:
-      - .:/app
-
   picross-backend-api:
     container_name: picross-backend-api-${NODE_ENV}
-    image: aifedespaix/picross-backend
-    entrypoint: npm run dev
-    ports:
-      - 8000:4000
-    depends_on:
-      - picross-backend-prisma
+    #    image: aifedespaix/picross-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - prod:/app
     networks:
       - web
-      - backend
     labels:
       - "traefik.frontend.rule=Host:${TRAEFIK_HOST_API}"
       - "traefik.backend=${TRAEFIK_HOST_API}-back"
@@ -35,6 +21,5 @@ services:
 networks:
   web:
     external: true
-  backend:
 volumes:
   prod:

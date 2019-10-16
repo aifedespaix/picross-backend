@@ -292,10 +292,10 @@
   resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-2.3.5.tgz#9da44ed75571999b65c37b60c9b2b88db54c585d"
   integrity sha512-SCcK7mvGi3+ZNz833RRjFIxrn4gI1PPR3NtuIS+6vMkvmsGjosqTJwRt5bAEFLRz+wtJMWv8+uOnZf2hi2QXTg==
 
-"@types/yup@0.26.18":
-  version "0.26.18"
-  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.26.18.tgz#7f76ad65b385577fb89936ce26a7f830a9560a9c"
-  integrity sha512-bKGlHqe+SrvdZONwB+H7hihsvl4yAaOIhN6Sgnnuo6NQOJ0bBNc53Ztfe8ORZHBcPC/OVxhFrxnJIjsGsDbR8w==
+"@types/yup@0.26.23":
+  version "0.26.23"
+  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.26.23.tgz#00721a3b675e7609e5bcccb94234e86b754bcd04"
+  integrity sha512-+tipAL6prdInS/avA6QityIFBDvHnqk1Tv9L5JMEws5IZC6agymBGAoDsrPyYp42wGcktyQtYKv9kvGPEKd4Qg==
 
 "@types/zen-observable@^0.5.3":
   version "0.5.4"
@@ -1451,12 +1451,12 @@ graphql-playground-middleware-lambda@1.7.12:
   dependencies:
     graphql-playground-html "1.6.12"
 
-graphql-shield@5.7.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/graphql-shield/-/graphql-shield-5.7.3.tgz#308daa76b66fae0ae4cc8d491b7bf1221b87f569"
-  integrity sha512-RFy+wK0EUshhWBThA8YDUghRPNRMYcCetjVO3eu4xAdWf5K366gt5ekz0eWkYp2bR6g+t0/9O0pKW4yw/gkCHA==
+graphql-shield@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/graphql-shield/-/graphql-shield-6.1.0.tgz#7298af72167e7c9fd19a36fac9b425b94025a393"
+  integrity sha512-dIZ6ABnUn3XQtIzw9/9f8wFmZoY5XZlsHgkxSKF+N/oXmKvQoi11J5/y/jxJTBmKYi/2JZ12C1JjDn5TOopn+w==
   dependencies:
-    "@types/yup" "0.26.18"
+    "@types/yup" "0.26.23"
     lightercollective "^0.3.0"
     object-hash "^1.3.1"
     yup "^0.27.0"
@@ -2281,6 +2281,11 @@ normalize-url@^4.1.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.0.tgz#453354087e6ca96957bd8f5baf753f5982142129"
   integrity sha512-2s47yzUxdexf1OhyRi4Em83iQk0aPvwTddtFz4hnSSw9dCEsLEGf6SwIO8ss/19S9iBb5sJaOuTvTGDeZI00BQ==
+
+now@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/now/-/now-16.3.1.tgz#e1109145d0e8a4508b3e011f1c2b7047cb8733da"
+  integrity sha512-bn+xHUiPRH1YRfe/hSo5WZUskOLX3igL4PTe9gnoLaUoq9ZuBQw5/6A4gG4VvW2HVQLgeRkp2OASfYnjuD+lcQ==
 
 npm-run-path@^3.0.0:
   version "3.1.0"

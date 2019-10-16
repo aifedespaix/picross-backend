@@ -2,9 +2,12 @@
   "name": "graphql-auth",
   "license": "MIT",
   "scripts": {
+    "prod": "node dist/src/index.js",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "generate": "prisma2 generate",
     "dev": "ts-node ./src",
-    "seed": "ts-node prisma/seed.ts",
-    "postinstall": "prisma2 generate"
+    "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
