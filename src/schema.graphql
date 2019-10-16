@@ -10,6 +10,7 @@ type AuthPayload {
 type Mutation {
   createDraft(content: String, title: String): Post!
   createPicross(map: String): Picross!
+  deletePicross(id: ID): Picross
   deletePost(id: ID): Post
   login(email: String, password: String): AuthPayload!
   publish(id: ID): Post
@@ -34,6 +35,7 @@ type Query {
   filterPosts(searchString: String): [Post!]!
   me: User!
   picross(id: ID): Picross
+  picrosses: [Picross!]
   post(id: ID): Post
 }
 
