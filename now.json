@@ -14,8 +14,5 @@
       "src": "/(.*)",
       "dest": "src/index.ts"
     }
-  ],
-  "env": {
-    "POSTGRESQL_URL": "@postgresql_url"
-  }
+  ]
 }
