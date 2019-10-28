@@ -29,7 +29,7 @@ model User {
   name      String?
   posts     Post[]
   picrosses Picross[]
-  level     Level   @default(USER)
+  level     Level
 }
 
 model Picross {

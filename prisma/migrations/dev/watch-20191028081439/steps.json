@@ -1,0 +1,91 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "stepType": "CreateField",
+      "model": "User",
+      "name": "picrosses",
+      "type": {
+        "Relation": {
+          "to": "Picross",
+          "to_fields": [],
+          "name": "PicrossToUser",
+          "on_delete": "None"
+        }
+      },
+      "arity": "list",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "User",
+      "name": "level",
+      "type": {
+        "Enum": "Level"
+      },
+      "arity": "required",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "Picross",
+      "name": "author",
+      "type": {
+        "Relation": {
+          "to": "User",
+          "to_fields": [
+            "id"
+          ],
+          "name": "PicrossToUser",
+          "on_delete": "None"
+        }
+      },
+      "arity": "required",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "Picross",
+      "name": "title",
+      "type": {
+        "Base": "String"
+      },
+      "arity": "required",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "Picross",
+      "name": "likes",
+      "type": {
+        "Base": "Int"
+      },
+      "arity": "required",
+      "isUnique": false,
+      "default": {
+        "Int": 0
+      }
+    },
+    {
+      "stepType": "CreateField",
+      "model": "Picross",
+      "name": "validated",
+      "type": {
+        "Base": "Boolean"
+      },
+      "arity": "required",
+      "isUnique": false,
+      "default": {
+        "Boolean": false
+      }
+    },
+    {
+      "stepType": "CreateEnum",
+      "name": "Level",
+      "values": [
+        "ADMIN",
+        "USER"
+      ]
+    }
+  ]
+}
