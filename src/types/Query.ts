@@ -1,4 +1,4 @@
-import {idArg, queryType, stringArg} from 'nexus';
+import {booleanArg, idArg, queryType, stringArg} from 'nexus';
 import {getUserId} from '../utils';
 
 export const Query = queryType({
@@ -15,39 +15,19 @@ export const Query = queryType({
       },
     });
 
+    t.list.field('users', {
+      type: 'User',
+      resolve: (parent, args, ctx) => {
+        return ctx.photon.users.findMany();
+      },
+    });
+
     t.list.field('feed', {
       type: 'Post',
       resolve: (parent, args, ctx) => {
         return ctx.photon.posts.findMany({
           where: {published: true},
         });
-      },
-    });
-
-    t.field('picross', {
-      type: 'Picross',
-      nullable: true,
-      args: {
-        id: idArg({required: false}),
-      },
-      resolve: async (parent, {id}, ctx) => {
-        if (id) {
-          return ctx.photon.picrosses.findOne({
-            where: {id},
-          });
-        } else {
-          const picrosses = await ctx.photon.picrosses.findMany();
-          const random = Math.floor(Math.random() * picrosses.length);
-          return picrosses[random] as any;
-        }
-      },
-    });
-
-    t.list.field('picrosses', {
-      type: 'Picross',
-      nullable: true,
-      resolve: async (parent, args, ctx) => {
-        return ctx.photon.picrosses.findMany();
       },
     });
 
@@ -84,6 +64,47 @@ export const Query = queryType({
         return ctx.photon.posts.findOne({
           where: {
             id,
+          },
+        });
+      },
+    });
+
+    t.field('picross', {
+      type: 'Picross',
+      nullable: true,
+      args: {
+        id: idArg(),
+      },
+      resolve: async (parent, {id}, ctx) => {
+        if (!id) { // Random Picross
+          const nbPicrosses = Number(await ctx.photon.picrosses.count());
+          const picrosses = await ctx.photon.picrosses.findMany({
+            skip: Math.floor(Math.random() * nbPicrosses),
+            first: 1
+          });
+          return picrosses[0];
+        } else {
+          return ctx.photon.picrosses.findOne({
+            where: {id},
+          });
+        }
+      },
+    });
+
+    t.list.field('picrosses', {
+      type: 'Picross',
+      nullable: true,
+      args: {
+        searchString: stringArg({nullable: true}),
+        validated: booleanArg(),
+      },
+      resolve: (parent, {searchString, validated}, ctx) => {
+        return ctx.photon.picrosses.findMany({
+          where: {
+            AND: [
+              {title: {contains: searchString}},
+              validated ? {validated} : {},
+            ],
           },
         });
       },
