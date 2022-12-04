@@ -905,9 +905,9 @@ decamelize@^1.1.2:
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 decompress-response@^3.3.0:
   version "3.3.0"
@@ -2578,10 +2578,10 @@ prisma-datamodel@1.36.0-test.2, prisma-datamodel@^1.36.0-test.2:
     pluralize "^7.0.0"
     popsicle "10"
 
-prisma2@^2.0.0-preview014.2:
-  version "2.0.0-preview015"
-  resolved "https://registry.yarnpkg.com/prisma2/-/prisma2-2.0.0-preview015.tgz#0390b1db7c0b7d4eb5892652d77756f7598ff398"
-  integrity sha512-1vPWsdikTTrIsNlDq6TIIGzZfb5BEurryL6lnT5QxdHYvTZXvNj9pJFHlvlxQpegtqZGITUNM+h7Dud+Y1kUtA==
+prisma2@^2.0.0-alpha.275:
+  version "2.0.0-preview025"
+  resolved "https://registry.yarnpkg.com/prisma2/-/prisma2-2.0.0-preview025.tgz#09b5d97b209484c1afe7b0b4ba64bb3930d96701"
+  integrity sha512-mt3L4RMF8pt3IXYkmwaZzl+7sfQenGDwN2hKwbiH4ImW+rWUVPle8QIUIJQZS8taxPhbEtrEltckhv8o1t9dSw==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
